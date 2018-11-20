@@ -1,6 +1,11 @@
 package org.zoikks.patterns.creational.factory;
 
-public class ShapeFactory {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+class ShapeFactory {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShapeFactory.class);
 
     public enum ShapeType {
         CIRCLE,
@@ -8,7 +13,12 @@ public class ShapeFactory {
         SQUARE
     }
 
-    public Shape createShape(ShapeType shapeType) {
+    ShapeFactory() {
+
+        LOGGER.debug("Initializing ShapeFactory...");
+    }
+
+    Shape createShape(ShapeType shapeType) {
 
         if (shapeType == null) {
             return null;

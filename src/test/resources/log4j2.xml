@@ -6,8 +6,8 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="org.ihc.hwcir" level="FATAL" />
-        <Root level="FATAL">
+        <Logger name="org.zoikks" level="DEBUG" />
+        <Root level="DEBUG">
             <AppenderRef ref="Console" />
         </Root>
     </Loggers>
