@@ -21,20 +21,20 @@ public class FactoryPatternDemo {
     private FactoryPatternDemo() {
 
         // Initialize the factory.
-        ShapeFactory shapeFactory = new ShapeFactory();
+        ShapeFactory shapeFactory = new ShapeFactoryImpl();
 
         // The factory generates instances of the Shape interface based on the type passed in ->
 
         // Circle as an instance of Shape
-        Shape circleShape = shapeFactory.createShape(ShapeFactory.ShapeType.CIRCLE);
+        Shape circleShape = shapeFactory.createShape(ShapeFactoryImpl.ShapeType.CIRCLE);
         circleShape.draw();
 
         // Square as an instance of Shape
-        Shape squareShape = shapeFactory.createShape(ShapeFactory.ShapeType.SQUARE);
+        Shape squareShape = shapeFactory.createShape(ShapeFactoryImpl.ShapeType.SQUARE);
         squareShape.draw();
 
         // Rectangle as an instance of Shape
-        Shape rectangleShape = shapeFactory.createShape(ShapeFactory.ShapeType.RECTANGLE);
+        Shape rectangleShape = shapeFactory.createShape(ShapeFactoryImpl.ShapeType.RECTANGLE);
         rectangleShape.draw();
     }
 }

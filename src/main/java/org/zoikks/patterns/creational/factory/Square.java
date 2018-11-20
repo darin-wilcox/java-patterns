@@ -3,6 +3,11 @@ package org.zoikks.patterns.creational.factory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ *
+ * Square implementation of the Shape interface.
+ *
+ */
 public class Square implements Shape {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Square.class);
