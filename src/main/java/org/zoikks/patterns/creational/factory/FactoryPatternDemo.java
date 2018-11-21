@@ -9,12 +9,17 @@ import org.slf4j.LoggerFactory;
  *
  * This example was found using examples from:  https://www.tutorialspoint.com/design_pattern/factory_pattern.htm
  *
+ * Precisely, this an example of "Parameterized Factory Methods".
+ *
  */
 public class FactoryPatternDemo {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FactoryPatternDemo.class);
 
     public static void main(String[] args) {
+
+        LOGGER.debug("Running the FactoryPatternDemo app: ");
+
         new FactoryPatternDemo();
     }
 
