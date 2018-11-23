@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  *
- * Example of running the Singleton Pattern.
+ * Example of running different implementations of the Singleton Pattern.
  *
  * This example was found using examples from:  https://www.tutorialspoint.com/design_pattern/factory_pattern.htm and
  * from https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
@@ -30,5 +30,13 @@ public class SingletonPatternDemo {
         LOGGER.debug("Equals (.equals): " + eagerInitializedSingleton.equals(EagerInitializedSingleton.getInstance()));
         boolean eagerInitializeEquals = eagerInitializedSingleton == EagerInitializedSingleton.getInstance();
         LOGGER.debug("Equals (==): " + eagerInitializeEquals);
+
+        // Example of a static block initialized singleton instance:
+        StaticBlockSingleton staticBlockSingleton = StaticBlockSingleton.getInstance();
+        LOGGER.debug("Static Block initialized instance: " + staticBlockSingleton);
+        LOGGER.debug("Initial: " + staticBlockSingleton + ", New: " + StaticBlockSingleton.getInstance());
+        LOGGER.debug("Equals (.equals): " + staticBlockSingleton.equals(StaticBlockSingleton.getInstance()));
+        boolean staticBlockEquals = staticBlockSingleton == StaticBlockSingleton.getInstance();
+        LOGGER.debug("Equals (==): " + staticBlockEquals);
     }
 }
