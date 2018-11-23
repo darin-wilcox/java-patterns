@@ -47,6 +47,15 @@ public class SingletonPatternDemo {
         LOGGER.debug("Equals (.equals): " + lazilyInitializedSingleton.equals(LazilyInitializedSingleton.getInstance(0)));
         boolean lazilyInitializeEquals = lazilyInitializedSingleton == LazilyInitializedSingleton.getInstance(0);
         LOGGER.debug("Equals (==): " + lazilyInitializeEquals);
+
+        // Example of a thread-safe, lazily intialized singleton instance:
+        ThreadSafeSingleton threadSafeSingleton = ThreadSafeSingleton.getInstance();
+        LOGGER.debug("Thread-safe initialized instance: " + threadSafeSingleton);
+        LOGGER.debug("Initial: " + threadSafeSingleton + ", New: " + ThreadSafeSingleton.getInstance());
+        LOGGER.debug("Equals (.equals): " + threadSafeSingleton.equals(ThreadSafeSingleton.getInstance()));
+        boolean threadSafeEquals = threadSafeSingleton == ThreadSafeSingleton.getInstance();
+        LOGGER.debug("Equals (==): " + threadSafeEquals);
+        LOGGER.debug("Double check locking: " + threadSafeSingleton + " and new: " + ThreadSafeSingleton.getInstanceUsingDoubleLocking());
     }
 
     /**
@@ -59,11 +68,25 @@ public class SingletonPatternDemo {
 
         for (int i = 0; i < 2; i++) {
 
-            Thread object = new Thread(new MultiThreadingSingleton());
+            Thread object = new Thread(new NegativeMultiThreadingSingleton());
             object.start();
         }
 
         // TODO Join the threads that were created to ensure the resulting values are different.
+    }
+
+    /**
+     *
+     * Initializes new threads to demonstrate the resolution to thread unsafe, singleton instantiation.
+     *
+     */
+    @SuppressWarnings("unused")
+    private void demoMultithreadedLazilyInitializedResolved() {
+
+        for (int i = 0; i < 2; i++) {
+            Thread object = new Thread(new ResolvedMultiThreadingSingleton());
+            object.start();
+        }
     }
 }
 
@@ -72,14 +95,31 @@ public class SingletonPatternDemo {
  * Demonstrates the negative aspects of an unsafe multithreaded, lazily initialized singleton.
  *
  */
-class MultiThreadingSingleton implements Runnable {
+class NegativeMultiThreadingSingleton implements Runnable {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MultiThreadingSingleton.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(NegativeMultiThreadingSingleton.class);
 
     @Override
     public void run() {
 
-        LazilyInitializedSingleton singleton = LazilyInitializedSingleton.getInstance(0);
+        LazilyInitializedSingleton singleton = LazilyInitializedSingleton.getInstance(10);
         LOGGER.debug("Singleton Instance: " + singleton);
+    }
+}
+
+/**
+ *
+ * Demonstrates the a safe, multi-threaded, lazily initialized instance of a singleton.
+ *
+ */
+class ResolvedMultiThreadingSingleton implements Runnable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ResolvedMultiThreadingSingleton.class);
+
+    @Override
+    public void run() {
+
+        ThreadSafeSingleton singleton = ThreadSafeSingleton.getInstance();
+        LOGGER.debug("Thread-safe singleton instance: " + singleton);
     }
 }
