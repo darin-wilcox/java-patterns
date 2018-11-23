@@ -56,6 +56,13 @@ public class SingletonPatternDemo {
         boolean threadSafeEquals = threadSafeSingleton == ThreadSafeSingleton.getInstance();
         LOGGER.debug("Equals (==): " + threadSafeEquals);
         LOGGER.debug("Double check locking: " + threadSafeSingleton + " and new: " + ThreadSafeSingleton.getInstanceUsingDoubleLocking());
+
+        BillPughSingleton billPughSingleton = BillPughSingleton.getInstance();
+        LOGGER.debug("BillPugh initialized instance: " + billPughSingleton);
+        LOGGER.debug("Initial: " + billPughSingleton + ", New: " + BillPughSingleton.getInstance());
+        LOGGER.debug("Equals (.equals): " + billPughSingleton.equals(BillPughSingleton.getInstance()));
+        boolean billPughEquals = billPughSingleton == BillPughSingleton.getInstance();
+        LOGGER.debug("Equals (==): " + billPughEquals);
     }
 
     /**
