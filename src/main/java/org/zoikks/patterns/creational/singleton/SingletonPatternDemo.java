@@ -63,6 +63,12 @@ public class SingletonPatternDemo {
         LOGGER.debug("Equals (.equals): " + billPughSingleton.equals(BillPughSingleton.getInstance()));
         boolean billPughEquals = billPughSingleton == BillPughSingleton.getInstance();
         LOGGER.debug("Equals (==): " + billPughEquals);
+
+        EnumSingleton enumSingleton = EnumSingleton.INSTANCE;
+        LOGGER.debug("EnumSingleton initialized instance: " + enumSingleton.hashCode());
+        LOGGER.debug("Initial: " + enumSingleton.hashCode() + ", New: " + EnumSingleton.INSTANCE.hashCode());
+        LOGGER.debug("Equals (.equals): " + enumSingleton.equals(EnumSingleton.INSTANCE));
+        LOGGER.debug("No need to check the '==' solution for equality...");
     }
 
     /**
