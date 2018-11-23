@@ -3,6 +3,7 @@ package org.zoikks.patterns.creational.singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 /**
  *
  * Example of running different implementations of the Singleton Pattern.
@@ -38,5 +39,47 @@ public class SingletonPatternDemo {
         LOGGER.debug("Equals (.equals): " + staticBlockSingleton.equals(StaticBlockSingleton.getInstance()));
         boolean staticBlockEquals = staticBlockSingleton == StaticBlockSingleton.getInstance();
         LOGGER.debug("Equals (==): " + staticBlockEquals);
+
+        // Example of a lazily initialized singleton instance:
+        LazilyInitializedSingleton lazilyInitializedSingleton = LazilyInitializedSingleton.getInstance(0);
+        LOGGER.debug("Lazily initialized instance: " + lazilyInitializedSingleton);
+        LOGGER.debug("Initial: " + lazilyInitializedSingleton + ", New: " + LazilyInitializedSingleton.getInstance(0));
+        LOGGER.debug("Equals (.equals): " + lazilyInitializedSingleton.equals(LazilyInitializedSingleton.getInstance(0)));
+        boolean lazilyInitializeEquals = lazilyInitializedSingleton == LazilyInitializedSingleton.getInstance(0);
+        LOGGER.debug("Equals (==): " + lazilyInitializeEquals);
+    }
+
+    /**
+     *
+     * Initializes new threads to demonstrate the negative aspects of unsafe singleton instantiation.
+     *
+     */
+    @SuppressWarnings("unused")
+    private void demoMultithreadedLazilyInitializedIssue() {
+
+        for (int i = 0; i < 2; i++) {
+
+            Thread object = new Thread(new MultiThreadingSingleton());
+            object.start();
+        }
+
+        // TODO Join the threads that were created to ensure the resulting values are different.
+    }
+}
+
+/**
+ *
+ * Demonstrates the negative aspects of an unsafe multithreaded, lazily initialized singleton.
+ *
+ */
+class MultiThreadingSingleton implements Runnable {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(MultiThreadingSingleton.class);
+
+    @Override
+    public void run() {
+
+        LazilyInitializedSingleton singleton = LazilyInitializedSingleton.getInstance(0);
+        LOGGER.debug("Singleton Instance: " + singleton);
     }
 }
