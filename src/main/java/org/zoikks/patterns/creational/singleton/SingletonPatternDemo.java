@@ -11,6 +11,20 @@ import org.slf4j.LoggerFactory;
  * This example was found using examples from:  https://www.tutorialspoint.com/design_pattern/factory_pattern.htm and
  * from https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples
  *
+ * Uses of the singleton pattern are in the following:
+ *
+ * Logging
+ * Drivers objects
+ * Caching
+ * Thread pools
+ *
+ * Other patterns that use the singleton design pattern are the following:
+ *
+ * Abstract Factory
+ * Builder
+ * Prototype
+ * Facade
+ *
  */
 public class SingletonPatternDemo {
 
