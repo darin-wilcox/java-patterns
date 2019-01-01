@@ -33,6 +33,11 @@
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.11.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.6</version>
+        </dependency>
 
         <!-- Spring Boot appears to be bringing in a dependency that is incompatible with other Log4J libraries. -->
         <dependency>
