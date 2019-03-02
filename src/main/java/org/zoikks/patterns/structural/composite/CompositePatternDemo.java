@@ -61,6 +61,8 @@ public class CompositePatternDemo {
         largeBox.addProduct(laptop);
         largeBox.addProduct(tablet);
 
+        largeBox.removeProduct(tablet);     // Decided to not include the tablet after all...
+
 
         Order order = new Order();
         // Could add other boxes but we'll start here...

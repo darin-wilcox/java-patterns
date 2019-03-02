@@ -27,6 +27,11 @@ class Box implements Component {
         this.products.add(product);
     }
 
+    void removeProduct(Component product) {
+
+        this.products.remove(product);
+    }
+
     /**
      *
      * Retrieves the cost of the box, plus the cost of everything in the box.
