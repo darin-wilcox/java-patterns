@@ -69,6 +69,6 @@ public class CompositePatternDemo {
         order.addBox(largeBox);
 
         LOGGER.debug("Total boxes in order: " + order.getBoxes().size());
-        LOGGER.debug("Total Cost: $" + order.getOrderCost());        // Should total up to $1210.00 :)
+        LOGGER.debug("Total Cost: $" + order.getOrderCost());        // Should total up to $611.00 :)
     }
 }
