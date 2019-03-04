@@ -14,6 +14,13 @@ import java.util.List;
  *
  * The other parts came from my own brain :)
  *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - Similar to the Abstract Factory but the biggest difference is the Builder pattern focuses on constructing
+ *      a complex object step by step.  Builder returns the product as a final step but as far as the Abstract
+ *      Factory pattern is concerned, the product gets returned immediately.
+ *  - A Composite is what the Builder often returns.
+ *
  */
 public class BuilderPatternDemo {
 

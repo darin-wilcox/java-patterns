@@ -9,6 +9,12 @@ import java.util.Date;
  *
  * Demonstrates the ability to Clone objects as an implementation of the Prototype Pattern.
  *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - Prototype and Abstract Factory are competing patterns in some ways.  They can also be used together.
+ *      An Abstract Factory might store a set of prototypes from which to clone and return product objects.
+ *  - Designs that make heavy use of the Composite and Decorator patterns often can benefit from Prototype.
+ *
  */
 public class PrototypePatternDemo {
 

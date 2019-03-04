@@ -20,6 +20,15 @@ import org.slf4j.LoggerFactory;
  * java.io.InputStreamReader(InputStream) (returns a Reader)
  * java.io.OutputStreamWriter(OutputStream) (returns a Writer)
  *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - Bridge is meant to separate an interface from its implementation so they can be varied easily and independently.
+ *      The adapter is meant to change the interface of an existing object.
+ *  - Decorate enhances another object without changing its interface.  A decorator is thus more transparent to the
+ *      application than an adapter is.  Decorator supports recursive composition which isn't possible with pure
+ *      adapters.
+ *  - Proxy defines a representative or surrogate for another object and does not change its interface.
+ *
  */
 public final class AdapterPatternDemo {
 

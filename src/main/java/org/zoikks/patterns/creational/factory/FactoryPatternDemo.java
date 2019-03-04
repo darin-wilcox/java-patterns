@@ -11,6 +11,13 @@ import org.slf4j.LoggerFactory;
  *
  * Precisely, this an example of "Parameterized Factory Methods".
  *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - Abstract Factory is often implemented with factory methods.
+ *  - Factory methods are usually called within Template Methods.
+ *  - Prototypes don't require subclassing Creator.  However, they often require an Initialize operation on the Product
+ *      class.  Factory Method doesn't require such an operation.
+ *
  */
 public class FactoryPatternDemo {
 
