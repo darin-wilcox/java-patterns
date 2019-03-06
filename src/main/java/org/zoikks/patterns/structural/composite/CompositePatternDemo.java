@@ -17,8 +17,17 @@ import org.slf4j.LoggerFactory;
  * "Using the composite pattern makes sense only when the core model of your app can be represented
  * as a tree."
  *
- * The composite pattern is a structural pattern that lets you conpose objects into tree structures
+ * The composite pattern is a structural pattern that lets you compose objects into tree structures
  * and then work with these structures as if they were individual objects.
+ *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - Often used for a Chain of Responsibility.
+ *  - Decorator is object used with Composite.
+ *  - Flyweight lets you share components, but they can no longer refer to their parents.
+ *  - Iterator can be used to traverse composites.
+ *  - Visitor localizes operations and behavior that would otherwise be distributed across Composite and
+ *      Leaf classes.
  *
  */
 public class CompositePatternDemo {

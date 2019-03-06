@@ -12,6 +12,12 @@ import org.slf4j.LoggerFactory;
  * Personally, not a fan of this example of the pattern.  There should be a cleaner way than defining a No-Op
  * implementation for one of the types of factories.
  *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - Abstract Factory classes are often implemented with factory methods.  But they can also be implemented using
+ *      Prototype.
+ *  - A concrete factory is often a singleton.
+ *
  */
 public class AbstractFactoryPatternDemo {
 

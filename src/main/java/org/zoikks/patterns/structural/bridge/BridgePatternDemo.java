@@ -34,6 +34,13 @@ import org.slf4j.LoggerFactory;
  *
  * "PREFER COMPOSITION OVER INHERITANCE" is the basis of this pattern.
  *
+ * Related Patterns (Design Patterns - Elements of Reusable Object-Oriented Software):
+ *
+ *  - An Abstract Factory can create and configure a particular Bridge.
+ *  - The Adapter pattern is geared toward making unrelated classes work together.  It is usually applied
+ *      to systems after they're designed.  Bridge is used up-front in a design to let abstractions and
+ *      implementations vary independently.
+ *
  */
 public class BridgePatternDemo {
 
